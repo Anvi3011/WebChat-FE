@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "rizz-chat-8932f"
-  }
+    "default": "webchat-9c8d4"
+  },
+  "targets": {},
+  "etags": {}
 }

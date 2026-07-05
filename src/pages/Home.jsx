@@ -74,9 +74,12 @@ function Home() {
   useEffect(() => {
     if (!username) return; 
 
-    socketRef.current = io("https://webchat-be.onrender.com", {
-      query: { username: username }
-    });
+    // Add options configuration object as the second argument
+socketRef.current = io("https://webchat-be.onrender.com", {
+  query: { username: username },
+  transports: ["websocket"], // 👈 CRITICAL: Force native websockets instantly, skip HTTP polling
+  upgrade: false             // 👈 Prevents the client from trying HTTP fallback methods
+});
 
     const socket = socketRef.current;
 
