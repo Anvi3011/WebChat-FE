@@ -77,8 +77,9 @@ function Home() {
     // Add options configuration object as the second argument
 socketRef.current = io("https://webchat-be.onrender.com", {
   query: { username: username },
-  transports: ["websocket","polling"], // 👈 CRITICAL: Force native websockets instantly, skip HTTP polling
-  upgrade: false ,
+  transports: ["polling","websocket"], // 👈 CRITICAL: Force native websockets instantly, skip HTTP polling
+  forceNew: true,
+  withCredentials: true
 });
 
     const socket = socketRef.current;
